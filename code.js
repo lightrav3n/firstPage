@@ -8,7 +8,7 @@ window.onload = function () {
   const cardText = document.getElementById("cardText");
   const cardTitle = document.getElementById("cardTitle");
   let currentIndex = 1;
-  let intervalId = setInterval(changeImage, 5000);
+  let intervalId = setInterval(changeImage, 8000);
 
   function changeImage() {
     switch (currentIndex) {
@@ -24,7 +24,7 @@ window.onload = function () {
         radio2.checked = true;
         cardTitle.textContent = "React Portfolio";
         cardText.textContent =
-          "The same portfolio as before, but refactored using React. No Bootstrap on this one so plenty of JavaScript.";
+          "The same portfolio as the one done with HTML and SCSS, but refactored using React. No Bootstrap on this one so plenty of JavaScript.";
         break;
       case 3:
         bigCard.style.backgroundImage = 'url("./assets/images/3.jpg")';
@@ -41,7 +41,7 @@ window.onload = function () {
   function setIndex(index) {
     clearInterval(intervalId);
     currentIndex = index;
-    intervalId = setInterval(changeImage, 5000);
+    intervalId = setInterval(changeImage, 8000);
     changeImage();
   }
 
