@@ -269,6 +269,6 @@ a p {
   }
 }
 
-a:visited {
-  color: black;
+a {
+  color: orange;
 }
