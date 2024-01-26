@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Gochi Hand", cursive;
+  letter-spacing: 1px;
+  transition: 0.5s linear;
+}
+
+.body {
+  display: flex;
+  flex-flow: column wrap;
+  background: #eeeeec;
+}
+
+/* nav */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav {
+  /* margin: auto 5em; */
+  margin-top: 1em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5em;
+}
+nav ul {
+  display: flex;
+  flex-flow: column nowrap;
+}
+nav a {
+  transition: color var(--short-duration) ease-in;
+  color: var(--black);
+
+  font-size: 1.5em;
+}
+a:hover {
+  color: orange;
+}
+
+.cta {
+  align-self: end;
+  color: black;
+  overflow: hidden;
+  padding: 1em;
+  font-size: 1.5em;
+}
+.cta:hover,
+.cta:focus {
+  border-color: orange;
+  color: orange;
+}
+
+/* cards */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  width: 200px;
+  height: 100px;
+  border-radius: 33px;
+  background: #eeeeec;
+  box-shadow: 5px 5px 10px #848484, -5px -5px 10px #e6e6e6;
+  overflow: hidden;
+
+  position: relative;
+}
+
+.cards {
+  display: flex;
+
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5em;
+  gap: 2em;
+}
+
+.card:hover {
+  display: flex;
+  flex-direction: column;
+
+  width: 200px;
+  height: 230px;
+  border-radius: 33px;
+  background: #eeeeec;
+  box-shadow: 5px 5px 10px #5a5a5a, -5px -5px 10px #e2e2e2;
+  transition: 0.5s linear;
+}
+
+.card img {
+  position: absolute; /* Position the image absolutely */
+  top: 50%; /* Center the image vertically */
+  left: 50%; /* Center the image horizontally */
+  transform: translate(-50%, -50%); /* Adjust for centering */
+  max-width: 90%; /* Ensure the image doesn't exceed the card width */
+  max-height: 100%; /* Ensure the image doesn't exceed the card height */
+  opacity: 0; /* Initially hide the image */
+  transition: opacity 0.5s ease; /* Add transition effect for opacity */
+}
+
+.card:hover img {
+  opacity: 1; /* Show the image on hover */
+}
+
+.card:active {
+  box-shadow: 4px 4px 12px #c5c5c5, -4px -4px 12px #ffffff;
+}
+a p {
+  font-weight: 600;
+  font-size: 1.5em;
+  text-align: center;
+}
+.card-big {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 500px;
+  width: 900px;
+  margin: auto 5em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+
+  border-radius: 50px;
+  background: #eeeeec;
+  box-shadow: 8px 8px 16px #707070, -8px -8px 16px #ffffff;
+  transition: background-image 0.5s ease;
+  overflow: hidden;
+}
+#cardTitle {
+  padding-left: 80px;
+  font-size: 1.5em;
+  color: rgb(0, 0, 0);
+}
+#cardText {
+  width: 300px;
+  padding-left: 80px;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+}
+
+/* ----radio--- */
+.radio-input .label input {
+  display: none;
+}
+
+.radio-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.radio-input .label {
+  display: flex;
+}
+
+.radio-input .label .check {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 3px solid transparent;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5),
+    -1px -1px 4px rgba(255, 255, 255, 0.5);
+}
+
+.radio-input .label input:checked + .check {
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5),
+    -1px -1px 4px rgba(255, 255, 255, 0.5), inset 3px 3px 6px rgba(0, 0, 0, 0.5),
+    inset -1px -1px 4px rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 800px) {
+  .card-big {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+
+    background-image: none !important;
+
+    height: 500px;
+    width: 500px;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+
+    border-radius: 50px;
+    background: #eeeeec;
+    box-shadow: 8px 8px 16px #707070, -8px -8px 16px #ffffff;
+    transition: background-image 0.5s ease;
+    overflow: hidden;
+  }
+
+  #cardTitle {
+    /* padding-left: 55px; */
+    font-size: 2.5em;
+    /* color: rgb(0, 0, 0); */
+  }
+  #cardText {
+    width: 350px;
+    /* padding-left: 55px; */
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1200px) {
+  .card-big {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+
+    /* background-image: none !important; */
+    background-size: contain;
+    /* background-repeat: no-repeat; */
+    /* background-position: center; */
+
+    height: 500px;
+    width: 750px;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+
+    border-radius: 50px;
+    background: #eeeeec;
+    box-shadow: 8px 8px 16px #707070, -8px -8px 16px #ffffff;
+    transition: background-image 0.5s ease;
+    overflow: hidden;
+  }
+  #cardTitle {
+    padding-left: 30px;
+    font-size: 2em;
+    color: rgb(0, 0, 0);
+  }
+  #cardText {
+    width: 350px;
+    padding-left: 30px;
+    font-size: 1.5em;
+    color: rgb(0, 0, 0);
+  }
+}
+
+a:visited {
+  color: black;
+}

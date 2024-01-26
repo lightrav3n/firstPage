@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body class="body">
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="https://www.artstation.com/davidalex" class="link">
+              Artstation
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.linkedin.com/in/alexdavidr" class="link">
+              Linkdin
+            </a>
+          </li>
+        </ul>
+        <ul class="role">
+          <li class="name">
+            <img src="./assets/icons/logo.png" alt="" width="65px" />
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="./contact.html" class="cta"> Contact </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="main">
+      <div id="bigCard" class="card-big">
+        <h2 id="cardTitle"></h2>
+        <p id="cardText"></p>
+      </div>
+    </div>
+    <div class="radio-input">
+      <label class="label">
+        <input id="radio1" type="radio" name="radio" checked="" />
+        <span class="check"></span>
+      </label>
+      <label class="label">
+        <input id="radio2" type="radio" name="radio" />
+        <span class="check"></span>
+      </label>
+
+      <label class="label">
+        <input id="radio3" type="radio" name="radio" />
+        <span class="check"></span>
+      </label>
+    </div>
+    <div class="cards">
+      
+      <a class="card" href="https://lightrav3n.github.io/Portfolio-HTML-SCSS/">
+        <p>PORTFOLIO with HTML/CSS</p>
+        <img src="./assets/logo/1.jpg" alt=""
+      /></a>
+
+
+      <a class="card" href="https://davidalex-portfolio.netlify.app/">
+        <p>PORTFOLIO with REACT</p>
+        <img src="./assets/logo/2.jpg" alt=""
+      /></a>
+
+      
+      <a class="card" href="https://lightrav3n.github.io/JS-AdventureGame/">
+        <p>GAME with JAVASCRIPT</p>
+        <img src="./assets/logo/3.jpg" alt=""
+      /></a>
+
+    </div>
+    <script>
+      const radio1 = document.getElementById("radio1");
+      const radio2 = document.getElementById("radio2");
+      const radio3 = document.getElementById("radio3");
+      const bigCard = document.getElementById("bigCard");
+      const cardText = document.getElementById("cardText");
+      const cardTitle = document.getElementById("cardTitle");
+      let currentIndex = 1;
+      let intervalId = setInterval(changeImage, 5000);
+
+      function changeImage() {
+        switch (currentIndex) {
+          case 1:
+            bigCard.style.backgroundImage = 'url("./assets/images/1.jpg")';
+            radio1.checked = true;
+            cardTitle.textContent = "HTML/CSS Portfolio";
+            cardText.textContent =
+              "A portfolio made with HTML,SCSS (some Bootstrap elements) and a bit of JavaScript to tie all, nice, together.";
+            break;
+          case 2:
+            bigCard.style.backgroundImage = 'url("./assets/images/2.jpg")';
+            radio2.checked = true;
+            cardTitle.textContent = "React Portfolio";
+            cardText.textContent =
+              "The same portfolio as before, but refactored using React. No Bootstrap on this one so plenty of JavaScript.";
+            break;
+          case 3:
+            bigCard.style.backgroundImage = 'url("./assets/images/3.jpg")';
+            radio3.checked = true;
+            cardTitle.textContent = "JS Adventure Game";
+            cardText.textContent =
+              "Going back to the origins with this one. An old school  text based adventure game made entirely using JavaScript. (maybe a dash of HTML and a bit of CSS for some light styling)";
+            break;
+        }
+
+        currentIndex = (currentIndex % 3) + 1;
+      }
+
+      function setIndex(index) {
+        clearInterval(intervalId);
+        currentIndex = index;
+        intervalId = setInterval(changeImage, 5000);
+        changeImage();
+      }
+
+      changeImage();
+
+      radio1.addEventListener("change", () => {
+        if (radio1.checked) {
+          setIndex(1);
+        }
+      });
+
+      radio2.addEventListener("change", () => {
+        if (radio2.checked) {
+          setIndex(2);
+        }
+      });
+
+      radio3.addEventListener("change", () => {
+        if (radio3.checked) {
+          setIndex(3);
+        }
+      });
+    </script>
+  </body>
+</html>
