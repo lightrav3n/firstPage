@@ -41,7 +41,7 @@ nav a {
   font-size: 1.5em;
 }
 a:hover {
-  color: orange;
+  color: rgb(224, 157, 31);
 }
 
 .cta {
@@ -53,8 +53,8 @@ a:hover {
 }
 .cta:hover,
 .cta:focus {
-  border-color: orange;
-  color: orange;
+  border-color: rgb(224, 157, 31);
+  color: rgb(224, 157, 31);
 }
 
 /* cards */
@@ -270,5 +270,5 @@ a p {
 }
 
 a {
-  color: orange;
+  color: rgb(224, 157, 31);
 }
