@@ -9,7 +9,7 @@
   transition: 0.5s linear;
 }
 html {
-  animation: fade 4s forwards ease-out;
+  animation: fade 3s forwards ease-out;
 }
 @keyframes fade {
   0% {
