@@ -1,5 +1,6 @@
 window.onload = function () {
-  // swipe
+  // swipe and click events
+
   const bigCard = document.getElementById("bigCard");
   let touchStartX = 0;
   let touchEndX = 0;
@@ -64,7 +65,6 @@ window.onload = function () {
   const radio1 = document.getElementById("radio1");
   const radio2 = document.getElementById("radio2");
   const radio3 = document.getElementById("radio3");
-
   const cardText = document.getElementById("cardText");
   const cardTitle = document.getElementById("cardTitle");
 
