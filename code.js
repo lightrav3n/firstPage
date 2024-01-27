@@ -6,32 +6,47 @@ window.onload = function () {
 
   bigCard.addEventListener("touchstart", handleTouchStart, false);
   bigCard.addEventListener("touchmove", handleTouchMove, false);
-  bigCard.addEventListener("mousedown", handleMouseDown, false);
-
+  // bigCard.addEventListener("mousedown", handleMouseDown, false);
+  bigCard.addEventListener("click", handleClick, false);
   function handleTouchStart(event) {
     touchStartX = event.touches[0].clientX;
   }
 
+  function handleClick(event) {
+    const clickX = event.clientX - bigCard.getBoundingClientRect().left;
+  
+    // Get the width of the card-big element
+    const cardWidth = bigCard.clientWidth;
+  
+    // Determine if the click occurred on the left or right side
+    if (clickX < cardWidth / 2) {
+      // Clicked on the left side
+      setIndex((currentIndex + 1) % 3 || 3);
+    } else {
+      // Clicked on the right side
+      setIndex(currentIndex % 3 + 1);
+    }
+  }
   function handleTouchMove(event) {
     touchEndX = event.touches[0].clientX;
     handleSwipe();
   }
 
-  function handleMouseDown(event) {
-    touchStartX = event.clientX;
-    document.addEventListener("mousemove", handleMouseMove, false);
-    document.addEventListener("mouseup", handleMouseUp, false);
-  }
+  // function handleMouseDown(event) {
+  //   touchStartX = event.clientX;
+  //   document.addEventListener("mousemove", handleMouseMove, false);
+  //   document.addEventListener("mouseup", handleMouseUp, false);
+  // }
 
-  function handleMouseMove(event) {
-    touchEndX = event.clientX;
-    handleSwipe();
-  }
+  // function handleMouseMove(event) {
+  //   touchEndX = event.clientX;
+  //   handleSwipe();
+  // }
 
-  function handleMouseUp() {
-    document.removeEventListener("mousemove", handleMouseMove, false);
-    document.removeEventListener("mouseup", handleMouseUp, false);
-  }
+  // function handleMouseUp() {
+  //   document.removeEventListener("mousemove", handleMouseMove, false);
+  //   document.removeEventListener("mouseup", handleMouseUp, false);
+  // }
 
   function handleSwipe() {
     const swipeThreshold = 150;
