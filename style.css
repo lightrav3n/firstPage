@@ -101,6 +101,7 @@ a:hover {
   justify-content: center;
   margin-top: 2.5em;
   gap: 2em;
+  margin-bottom: 2.5em;
 }
 
 .card:hover {
