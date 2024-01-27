@@ -68,6 +68,9 @@ window.onload = function () {
   const cardText = document.getElementById("cardText");
   const cardTitle = document.getElementById("cardTitle");
 
+  cardTitle.style.userSelect = "none";
+  cardText.style.userSelect = "none";
+
   let currentIndex = 1;
   let intervalId = setInterval(changeImage, 8000);
 
