@@ -12,6 +12,20 @@ window.onload = function () {
   function handleTouchStart(event) {
     touchStartX = event.touches[0].clientX;
   }
+  function handleTouchMove(event) {
+    touchEndX = event.touches[0].clientX;
+    handleSwipe();
+  }
+
+  function handleSwipe() {
+    const swipeThreshold = 10;
+
+    if (touchStartX - touchEndX > swipeThreshold) {
+      setIndex((currentIndex % 3) + 1);
+    } else if (touchEndX - touchStartX > swipeThreshold) {
+      setIndex((currentIndex + 1) % 3 || 3);
+    }
+  }
 
   function handleClick(event) {
     const clickX = event.clientX - bigCard.getBoundingClientRect().left;
@@ -28,20 +42,7 @@ window.onload = function () {
       setIndex((currentIndex % 3) + 1);
     }
   }
-  function handleTouchMove(event) {
-    touchEndX = event.touches[0].clientX;
-    handleSwipe();
-  }
 
-  function handleSwipe() {
-    const swipeThreshold = 20;
-
-    if (touchStartX - touchEndX > swipeThreshold) {
-      setIndex((currentIndex % 3) + 1);
-    } else if (touchEndX - touchStartX > swipeThreshold) {
-      setIndex((currentIndex + 1) % 3 || 3);
-    }
-  }
 
   // rest
   const radio1 = document.getElementById("radio1");
