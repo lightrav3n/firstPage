@@ -34,7 +34,7 @@ window.onload = function () {
     }
   }
   function handleSwipe() {
-    const swipeThreshold = 10;
+    const swipeThreshold = 30;
 
     if (touchStartX - touchEndX > swipeThreshold) {
       setIndex((currentIndex % 3) + 1);
