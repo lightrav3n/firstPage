@@ -6,25 +6,26 @@ window.onload = function () {
 
   bigCard.addEventListener("touchstart", handleTouchStart, false);
   bigCard.addEventListener("touchmove", handleTouchMove, false);
-  // bigCard.addEventListener("mousedown", handleMouseDown, false);
+
   bigCard.addEventListener("click", handleClick, false);
+
   function handleTouchStart(event) {
     touchStartX = event.touches[0].clientX;
   }
 
   function handleClick(event) {
     const clickX = event.clientX - bigCard.getBoundingClientRect().left;
-  
+
     // Get the width of the card-big element
     const cardWidth = bigCard.clientWidth;
-  
+
     // Determine if the click occurred on the left or right side
     if (clickX < cardWidth / 2) {
       // Clicked on the left side
       setIndex((currentIndex + 1) % 3 || 3);
     } else {
       // Clicked on the right side
-      setIndex(currentIndex % 3 + 1);
+      setIndex((currentIndex % 3) + 1);
     }
   }
   function handleTouchMove(event) {
@@ -32,24 +33,8 @@ window.onload = function () {
     handleSwipe();
   }
 
-  // function handleMouseDown(event) {
-  //   touchStartX = event.clientX;
-  //   document.addEventListener("mousemove", handleMouseMove, false);
-  //   document.addEventListener("mouseup", handleMouseUp, false);
-  // }
-
-  // function handleMouseMove(event) {
-  //   touchEndX = event.clientX;
-  //   handleSwipe();
-  // }
-
-  // function handleMouseUp() {
-  //   document.removeEventListener("mousemove", handleMouseMove, false);
-  //   document.removeEventListener("mouseup", handleMouseUp, false);
-  // }
-
   function handleSwipe() {
-    const swipeThreshold = 50;
+    const swipeThreshold = 20;
 
     if (touchStartX - touchEndX > swipeThreshold) {
       setIndex((currentIndex % 3) + 1);
@@ -62,7 +47,7 @@ window.onload = function () {
   const radio1 = document.getElementById("radio1");
   const radio2 = document.getElementById("radio2");
   const radio3 = document.getElementById("radio3");
-  
+
   const cardText = document.getElementById("cardText");
   const cardTitle = document.getElementById("cardTitle");
 
