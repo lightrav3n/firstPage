@@ -245,6 +245,7 @@ a p {
 
 @media only screen and (min-width: 801px) and (max-width: 1200px) {
   .card-big {
+
     display: flex;
     justify-content: center;
     align-items: left;
@@ -269,14 +270,14 @@ a p {
     overflow: hidden;
   }
   #cardTitle {
-    padding-left: 30px;
+    /* padding-left: 30px; */
     font-size: 2em;
     color: rgb(0, 0, 0);
   }
   #cardText {
     width: 350px;
-    padding-left: 30px;
-    font-size: 1.5em;
+    /* padding-left: 30px; */
+    font-size: 0.8em;
     color: rgb(0, 0, 0);
   }
 }
@@ -285,8 +286,9 @@ a {
   color:black;
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 430px) {
   .card-big {
+    display: none;
     display: flex;
     /* justify-content: center; */
     /* align-items: center; */
@@ -309,6 +311,17 @@ a {
   }
   nav {
     gap: 1em;
+  }
+  #cardTitle {
+    padding-left: 30px;
+    font-size: 2em;
+    color: rgb(0, 0, 0);
+  }
+  #cardText {
+    width: 350px;
+    padding-left: 30px;
+    font-size: 0.8em;
+    color: rgb(0, 0, 0);
   }
 }
 
