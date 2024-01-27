@@ -47,8 +47,8 @@ nav ul {
   flex-flow: column nowrap;
 }
 nav a {
-  transition: color var(--short-duration) ease-in;
-  color: var(--black);
+  transition: color 1s ease-in;
+  color: black;
 
   font-size: 1.5em;
 }
@@ -282,7 +282,7 @@ a p {
 }
 
 a {
-  color: rgb(224, 157, 31);
+  color:black;
 }
 
 @media only screen and (max-width: 390px) {
