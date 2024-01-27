@@ -24,7 +24,7 @@ window.onload = function () {
         radio2.checked = true;
         cardTitle.textContent = "React Portfolio";
         cardText.textContent =
-          "The same portfolio as the one done with HTML and SCSS, but refactored using React. No Bootstrap on this one so plenty of JavaScript.";
+          "The same portfolio as the one done with HTML and SCSS, but refactored using React JS. No Bootstrap on this one. Just some React  Router and Font Awesome";
         break;
       case 3:
         bigCard.style.backgroundImage = 'url("./assets/images/3.jpg")';
