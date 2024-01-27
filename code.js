@@ -6,17 +6,33 @@ window.onload = function () {
 
   bigCard.addEventListener("touchstart", handleTouchStart, false);
   bigCard.addEventListener("touchmove", handleTouchMove, false);
-
+  bigCard.addEventListener("touchend", handleTouchClick, false)
   bigCard.addEventListener("click", handleClick, false);
 
   function handleTouchStart(event) {
     touchStartX = event.touches[0].clientX;
+    event.preventDefault()
   }
   function handleTouchMove(event) {
     touchEndX = event.touches[0].clientX;
     handleSwipe();
   }
 
+  function handleTouchClick(event) {
+    const clickX = event.clientX - bigCard.getBoundingClientRect().left;
+
+    // Get the width of the card-big element
+    const cardWidth = bigCard.clientWidth;
+
+    // Determine if the click occurred on the left or right side
+    if (clickX < cardWidth / 2) {
+      // Clicked on the left side
+      setIndex((currentIndex + 1) % 3 || 3);
+    } else {
+      // Clicked on the right side
+      setIndex((currentIndex % 3) + 1);
+    }
+  }
   function handleSwipe() {
     const swipeThreshold = 10;
 
