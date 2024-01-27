@@ -313,13 +313,13 @@ a {
     gap: 1em;
   }
   #cardTitle {
-    padding-left: 30px;
+    padding: 30px;
     font-size: 2em;
     color: rgb(0, 0, 0);
   }
   #cardText {
     width: 350px;
-    padding-left: 30px;
+    padding: 30px;
     font-size: 0.8em;
     color: rgb(0, 0, 0);
   }
