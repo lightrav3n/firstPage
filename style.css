@@ -8,7 +8,19 @@
   letter-spacing: 1px;
   transition: 0.5s linear;
 }
-
+html {
+  animation: fade 4s forwards ease-out;
+}
+@keyframes fade {
+  0% {
+    color: black;
+    opacity: 0;
+  }
+  100% {
+    color: black;
+    opacity: 1;
+  }
+}
 .body {
   display: flex;
   flex-flow: column wrap;
@@ -299,3 +311,7 @@ a {
     gap: 1em;
   }
 }
+
+
+/* fade----- */
+
