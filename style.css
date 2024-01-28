@@ -47,7 +47,7 @@ nav ul {
   flex-flow: column nowrap;
 }
 nav a {
-  transition: color 1s ease-in;
+  transition: color 1s ease-in !important;
   color: black;
 
   font-size: 1.5em;
