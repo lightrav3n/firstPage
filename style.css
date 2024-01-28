@@ -6,7 +6,7 @@
   list-style-type: none;
   font-family: "Gochi Hand", cursive;
   letter-spacing: 1px;
-  transition: 0.5s linear;
+  transition: 0.5s linear !important;
 }
 html {
   animation: fade 3s forwards ease-out;
@@ -46,8 +46,12 @@ nav ul {
   display: flex;
   flex-flow: column nowrap;
 }
+
+#links{
+  
+}
 nav a {
-  transition: color 1s ease-in !important;
+  transition: color 0.3s ease-in !important;
   color: black;
 
   font-size: 1.5em;
