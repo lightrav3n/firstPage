@@ -1,3 +1,127 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const windowElement = window;
+  const parallaxElements = document.querySelectorAll('.parallax-img[data-type="background"]');
+  const contentElements = document.querySelectorAll(".content");
+  const loaderElements = document.querySelectorAll(".loader");
+  const header = document.querySelector(".sec1_half");
+  const helloHead = document.querySelector(".sec1_hello");
+  const sec1Text = document.querySelector(".sec1_text");
+  const sec1Scroll = document.querySelector(".sec1_scroll");
+  const sec1Scroll2 = document.querySelector(".sec1_scroll2");
+  const removeLoader = document.querySelector(".loader_out2");
+
+  // Parallax Effect
+  parallaxElements.forEach((parallaxElement) => {
+    windowElement.addEventListener("scroll", () => {
+      const yPos = -(windowElement.scrollY || windowElement.scrollTop) / parallaxElement.dataset.speed;
+      parallaxElement.style.backgroundPosition = `50% ${yPos}px`;
+    });
+  });
+
+  // Set initial classes on window load
+  window.addEventListener("load", () => {
+    contentElements.forEach((contentElement) => contentElement.classList.add("content_block"));
+    loaderElements.forEach((loaderElement) => {
+      loaderElement.classList.add("loader_out");
+      loaderElement.querySelector(".loader_out").animate({ width: "0" });
+      loaderElement.querySelector(".loader_out2").animate({ width: "50vw" }, 500);
+    });
+  });
+
+  // Hello Animation
+  setTimeout(() => {
+    const contTrue = document.querySelector(".content").classList.contains("content_block");
+    if (contTrue) {
+      helloHead.classList.add("sec1_hello_block");
+      console.log("Trigger");
+      const $browser = checkNavigateur();
+      const tlHello = new TimelineLite({ paused: true });
+
+      const animateHello = (selector, duration, offset) => {
+        tlHello.staggerFrom(document.querySelectorAll(selector), duration, { drawSVG: "0%", ease: Power3.easeOut }, offset);
+      };
+
+      animateHello("#hello_h > *", 0.6, 0.8);
+      animateHello("#hello_e > *", 0.6, "-=0.7");
+      animateHello("#hello_l1 > *", 0.6, "-=1.2");
+      animateHello("#hello_l2 > *", 0.6, "-=1");
+      animateHello("#hello_o > *", 1.2, "-=1.2");
+      animateHello("#hello_dot > *", 0.6, "-=0.8");
+
+      if ($browser.name == "Safari" && $browser.version < 10) {
+        tlHello.progress(1, false);
+      } else {
+        tlHello.play().timeScale(1);
+      }
+    } else {
+      console.log("else working");
+    }
+  }, 2000);
+
+  // Check Browser Function
+  function checkNavigateur() {
+    const nAgt = navigator.userAgent;
+    let browserName = navigator.appName;
+    let fullVersion = parseFloat(navigator.appVersion);
+    let majorVersion = parseInt(navigator.appVersion, 10);
+
+    const matchBrowser = (regex, name) => {
+      const match = nAgt.match(regex);
+      if (match) {
+        browserName = name;
+        fullVersion = match[1];
+      }
+    };
+
+    matchBrowser(/Opera\/([0-9.]+)/, "Opera");
+    matchBrowser(/MSIE ([0-9.]+)/, "Microsoft Internet Explorer");
+    matchBrowser(/Chrome\/([0-9.]+)/, "Chrome");
+    matchBrowser(/Safari\/([0-9.]+)/, "Safari");
+    matchBrowser(/Firefox\/([0-9.]+)/, "Firefox");
+
+    if ((ix = fullVersion.indexOf(";")) != -1) fullVersion = fullVersion.substring(0, ix);
+    if ((ix = fullVersion.indexOf(" ")) != -1) fullVersion = fullVersion.substring(0, ix);
+
+    majorVersion = parseInt(fullVersion, 10);
+
+    if (isNaN(majorVersion)) {
+      fullVersion = parseFloat(navigator.appVersion);
+      majorVersion = parseInt(navigator.appVersion, 10);
+    }
+
+    return { name: browserName, version: majorVersion };
+  }
+
+  // Scroll Events
+  window.addEventListener("scroll", () => {
+    const scroll = window.scrollY || window.scrollTop;
+
+    // Apply classes based on scroll position
+    if (scroll >= 100) {
+      removeLoader.removeAttribute("style");
+      removeLoader.classList.remove("loader_out2");
+      header.classList.add("sec1_full");
+      helloHead.classList.add("hello_right");
+      sec1Text.classList.add("sec1_text_top");
+      sec1Scroll.classList.add("down_hide");
+      sec1Scroll2.classList.add("up_show");
+    } else {
+      header.classList.remove("sec1_full");
+      helloHead.classList.remove("hello_right");
+      sec1Text.classList.remove("sec1_text_top");
+      sec1Scroll.classList.remove("down_hide");
+      sec1Scroll2.classList.remove("up_show");
+    }
+
+    // Adjust animation position based on scroll
+    if (scroll >= 600) {
+      document.querySelector(".anim").style.top = `${200 - scroll / 3}px`;
+    } else {
+      document.querySelector(".anim").style.top = "0px";
+    }
+  });
+});
+
 window.onload = function () {
   // swipe and click events
 
